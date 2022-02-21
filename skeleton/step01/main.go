@@ -102,13 +102,13 @@ func main() {
 		// TODO: 関数水を600[ml]減らす
 		var target Water
 		if water > 600 {
-			target = 600
+			target = 600 * MilliLiterWater
 		} else {
 			target = water
 		}
 		// TODO: お湯をboil関数で600[ml]沸かして増やす
-		hotWater = hotWater + boil(target)
-		water = water - target
+		hotWater += boil(target)
+		water -= target
 	}
 	fmt.Println(hotWater)
 
@@ -118,7 +118,7 @@ func main() {
 		var target Bean
 		// TODO: 豆を20[g]減らす
 		if beans > 20 {
-			target = 20
+			target = 20 * GramBeans
 		} else {
 			target = beans
 		}
@@ -133,9 +133,9 @@ func main() {
 	cups := 4 * CupsCoffee
 	for hotWater >= cups.HotWater() && groundBeans >= cups.GroundBeans() {
 		// TODO: お湯を4杯に必要な分量だけ減らす
-		hotWater = hotWater - cups.HotWater()
+		hotWater -= cups.HotWater()
 		// TODO: 挽いた豆を4杯に必要な分量だけ減らす
-		groundBeans = groundBeans - cups.GroundBeans()
+		groundBeans -= cups.GroundBeans()
 		// TODO: 4杯分の材料でbrew関数でコーヒーを淹れて増やす
 		coffee += brew(cups.HotWater(), cups.GroundBeans())
 	}
