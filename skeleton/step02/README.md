@@ -68,6 +68,7 @@ defer region.End()
 ```
 
 なお、次のように1行で書くこともできます。
+(defer文でメソッドチェーンすると、最後の呼び出し以外は即時実行される)
 
 ```go
 defer trace.StartRegion(ctx, "region_name").End()
