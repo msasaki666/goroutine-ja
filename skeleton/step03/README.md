@@ -83,7 +83,7 @@ $ go run main.go
 $ go tool trace trace.out
 ```
 
-ブラウザが開くので、`User-defined tasks` -> `Count` -> `Task 1`の順番で開くと次のような結果が表示されれば成功です。
+ブラウザが開くので、`User-defined tasks` -> `Count` -> `Task 1のgoroutine view`の順番で開くと次のような結果が表示されれば成功です。
 
 <img src="trace.png" width="500px">
 
