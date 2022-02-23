@@ -1,0 +1,21 @@
+{
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "app",
+  "workspaceFolder": "/go/src/app",
+  "settings": {
+    "editor.formatOnSave": true,
+    "dotfiles.repository": "msasaki666/dotfiles",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "terminal.integrated.defaultProfile.linux": "zsh"
+  },
+  "extensions": [
+    "mosapride.zenkaku",
+    "golang.go",
+    "editorconfig.editorconfig",
+  ],
+  "postCreateCommand": "apt-get update && apt-get install -y peco zsh",
+}

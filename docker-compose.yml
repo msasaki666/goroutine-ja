@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  app:
+    image: golang:1.14
+    volumes:
+      - .:/go/src/app:cached
+      - ~/.zsh_history:$HOME/.zsh_history
+    command:
+      tail -f /dev/null
+    ports:
+      - "59526:59526"
