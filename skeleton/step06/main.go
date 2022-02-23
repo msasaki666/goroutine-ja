@@ -104,7 +104,7 @@ func _main() {
 
 	// TODO: taskCtxをベースにしてerrgroup.WithContextで
 	// errgroup.Groupとコンテキストを作成する。
-
+	eg, ctx := errgroup.WithContext(taskCtx)
 	// お湯を沸かす
 	var hotWater HotWater
 	var hwmu sync.Mutex
@@ -135,7 +135,12 @@ func _main() {
 		beans -= 20 * GramBeans
 		eg.Go(func() error {
 			// TODO: キャンセルを検出する
-
+			select {
+			case <-ctx.Done():
+				trace.Log(ctx, "grind error", ctx.Err().Error())
+				return ctx.Err()
+			default:
+			}
 			gb, err := grind(ctx, 20*GramBeans)
 			if err != nil {
 				return err
